@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "659540110952",
+    "project_id": "pushnot-auth",
+    "storage_bucket": "pushnot-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659540110952:android:c4c1d4169a7a159f31d5dd",
+        "android_client_info": {
+          "package_name": "com.example.firebase_with_getx_todo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3KVHl5WvBDx-KIY6XtnLofdwdvAf-47Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
