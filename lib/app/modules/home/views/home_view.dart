@@ -1,29 +1,5 @@
-// import 'package:flutter/material.dart';
-
-// import 'package:get/get.dart';
-
-// import '../controllers/home_controller.dart';
-
-// class HomeView extends GetView<HomeController> {
-//   const HomeView({Key? key}) : super(key: key);
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('HomeView'),
-//         centerTitle: true,
-//       ),
-//       body: const Center(
-//         child: Text(
-//           'HomeView is working',
-//           style: TextStyle(fontSize: 20),
-//         ),
-//       ),
-//     );
-//   }
-// }
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_with_getx_todo/app/modules/home/views/end.dart';
 import 'package:firebase_with_getx_todo/app/modules/model/todo.dart';
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
 import 'package:firebase_with_getx_todo/app/utils/helper.dart';
@@ -52,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Todo_List'),
       ),
+      endDrawer: const EndDrawer(),
       body: Container(
         color: Colors.grey.shade100,
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
@@ -134,11 +111,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         // actions: [
         //   if (todo != null)
-        //     TextButton.icon(
-        //       onPressed: () {
-        //         homecontroller.deleteTodo();
-        //       },
-        //     )
+        //     TextButton(
+        //         onPressed: () {
+        //           homecontroller.deleteTodo(todo.id);
+        //         },
+        //         child: child)
         // ],
       ),
     );
