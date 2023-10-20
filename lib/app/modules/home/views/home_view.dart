@@ -26,9 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo_List'),
+        title: const Text(
+          'Todo_List',
+          style: TextStyle(fontFamily: 'Pacifico'),
+        ),
       ),
-      endDrawer: const EndDrawer(),
+      // endDrawer: const EndDrawer(),
       body: Container(
         color: Colors.grey.shade100,
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(

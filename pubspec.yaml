@@ -18,6 +18,11 @@ dependencies:
   grouped_list: ^5.1.2
   firebase_auth: ^4.11.1
 
+fonts:
+  - family: Pacifico
+    fonts:
+      - asset: fonts/Pacifico-Regular.ttf
+
 dev_dependencies: 
   flutter_lints: ^2.0.0
   flutter_test: 
