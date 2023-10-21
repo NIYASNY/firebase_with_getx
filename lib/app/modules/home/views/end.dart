@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class EndDrawer extends StatelessWidget {
-  const EndDrawer({super.key});
+  const EndDrawer({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class EndDrawer extends StatelessWidget {
             leading: const Icon(Icons.delete_sweep),
             title: const Text('Delete Completed Todos'),
             onTap: () {
-              homecontroller.deleteCompleted();
+              homeController.deleteCompleted();
               Scaffold.of(context).closeEndDrawer();
             },
           ),

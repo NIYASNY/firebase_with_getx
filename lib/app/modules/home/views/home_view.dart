@@ -4,21 +4,22 @@ import 'package:firebase_with_getx_todo/app/modules/model/todo.dart';
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
 import 'package:firebase_with_getx_todo/app/utils/helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:grouped_list/grouped_list.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final homecontroller = TextEditingController();
+  final textController = TextEditingController();
   String time = '';
   @override
   void dispose() {
-    homecontroller.dispose();
+    textController.dispose();
     super.dispose();
   }
 
@@ -31,11 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(fontFamily: 'Pacifico'),
         ),
       ),
-      // endDrawer: const EndDrawer(),
+      endDrawer: const EndDrawer(),
       body: Container(
         color: Colors.grey.shade100,
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-          stream: firestore.collection('todos').snapshots(),
+          stream: firestore
+              .collection('Users')
+              .doc(authcontroller.user!.uid)
+              .collection('todos')
+              .snapshots(),
           builder: (context, snapshot) {
             if (!snapshot.hasData) {
               return const Center(
@@ -65,15 +70,86 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: InkWell(
                     onTap: () {
-                      homecontroller.text = todo.text;
+                      textController.text = todo.text;
                       time = todo.time;
                     },
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border(
+                              left: BorderSide(
+                            color: getLabelColor(todo.date),
+                            width: 10,
+                          )),
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(4, 4),
+                              blurRadius: 2.0,
+                              color: Colors.black,
+                            )
+                          ]),
+                      child: AnimatedOpacity(
+                        opacity: todo.isDone ? 0.4 : 1.0,
+                        duration: const Duration(milliseconds: 100),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Padding(
+                                padding: const EdgeInsets.all(14.0),
+                                child: Text(
+                                  todo.text,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Text(
+                              todo.time,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                homeController.updateTodo(todo.id,
+                                    todo.copyWith(isDone: !todo.isDone));
+                              },
+                              child: Container(
+                                padding:
+                                    const EdgeInsets.all(4).copyWith(right: 14),
+                                child: Icon(
+                                  todo.isDone
+                                      ? Icons.check_circle
+                                      : Icons.circle_outlined,
+                                  size: 28,
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ),
                 );
               },
             );
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: () async {
+        setState(() {
+          time = TimeOfDay.now().format(context);
+        });
+        await showTodoInput(context).then((value) {
+          textController.clear();
+        });
+      },
+      child: const Icon(Icons.add),
       ),
     );
   }
@@ -88,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
-              controller: homecontroller,
+              controller: textController,
               autofocus: true,
               decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -112,14 +188,44 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Text('Time : $time')),
           ],
         ),
-        // actions: [
-        //   if (todo != null)
-        //     TextButton(
-        //         onPressed: () {
-        //           homecontroller.deleteTodo(todo.id);
-        //         },
-        //         child: child)
-        // ],
+        actions: [
+          if (todo != null)
+            TextButton.icon(
+                onPressed: () {
+                  homeController.deleteTodo(todo.id);
+                },
+                icon: Icon(Icons.delete),
+                label: const Text(
+                  'Delete',
+                  style: TextStyle(
+                    color: Colors.red,
+                  ),
+                )),
+          TextButton(
+              onPressed: () {
+                Get.back();
+              },
+              child: const Text('Cancel')),
+          ElevatedButton(
+              onPressed: () {
+                if (textController.text.isEmpty) {
+                  return;
+                }
+                if (todo != null) {
+                  homeController.updateTodo(
+                      todo.id,
+                      todo.copyWith(
+                        text: textController.text,
+                        time: time,
+                      ));
+                } else {
+                  homeController.addTodo(textController.text, time,
+                      getDateTimestamp(DateTime.now()));
+                }
+                Get.back();
+              },
+              child: Text(todo == null ? 'Add Todo' : 'Update Todo'))
+        ],
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
 import 'package:firebase_with_getx_todo/app/widgets/todo_logo.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';

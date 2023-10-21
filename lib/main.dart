@@ -3,9 +3,7 @@ import 'package:firebase_with_getx_todo/app/modules/home/views/welcome_screen.da
 import 'package:firebase_with_getx_todo/app/widgets/notification.dart';
 import 'package:firebase_with_getx_todo/firebase_options.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'app/routes/app_pages.dart';
 
 void main() async {
