@@ -119,10 +119,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       const Text('Already have an account?'),
                       TextButton(
-                          onPressed: () {
-                            Get.off(() => const LoginScreen());
-                          },
-                          child: const Text('Login Now'))
+                        onPressed: () {
+                          Get.off(() => const LoginScreen());
+                        },
+                        child: const Text('Login Now'),
+                      ),
                     ],
                   ),
                 )

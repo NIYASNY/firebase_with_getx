@@ -44,6 +44,4 @@ class Todo {
   String toString() {
     return '$text - $date - $time - $isDone';
   }
-
-  // set(Map<String, dynamic> map) {}
 }

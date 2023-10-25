@@ -1,8 +1,6 @@
 import 'package:firebase_with_getx_todo/app/modules/home/views/welcome_screen.dart';
 import 'package:get/get.dart';
-
 import '../modules/home/bindings/home_binding.dart';
-import '../modules/home/views/home_view.dart';
 
 part 'app_routes.dart';
 
