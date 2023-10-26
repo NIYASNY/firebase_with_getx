@@ -84,7 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         label: 'Delete',
                       ),
                       SlidableAction(
-                        onPressed: (context) {},
+                        onPressed: (context) {
+                          showTodoInput(context, todo: todo);
+                        },
                         backgroundColor: Color(0xFF21B7CA),
                         foregroundColor: Colors.white,
                         icon: Icons.update,
@@ -215,18 +217,18 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         actions: [
-          if (todo != null)
-            TextButton.icon(
-                onPressed: () {
-                  homeController.deleteTodo(todo.id);
-                },
-                icon: Icon(Icons.delete),
-                label: const Text(
-                  'Delete',
-                  style: TextStyle(
-                    color: Colors.red,
-                  ),
-                )),
+          // if (todo != null)
+          //   TextButton.icon(
+          //       onPressed: () {
+          //         homeController.deleteTodo(todo.id);
+          //       },
+          //       icon: Icon(Icons.delete),
+          //       label: const Text(
+          //         'Delete',
+          //         style: TextStyle(
+          //           color: Colors.red,
+          //         ),
+          //       )),
           TextButton(
               onPressed: () {
                 Get.back();
@@ -245,9 +247,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         time: time,
                       ));
                 } else {
-                  homeController.addTodo(textController.text, time,
-                      getDateTimestamp(DateTime.now(),
-                      ),);
+                  homeController.addTodo(
+                    textController.text,
+                    time,
+                    getDateTimestamp(
+                      DateTime.now(),
+                    ),
+                  );
                 }
                 Get.back();
               },
