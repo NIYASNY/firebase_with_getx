@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     controller: emailController,
                     validator: (value) {
                       if (!regExForEmail.hasMatch(value!)) {
-                        return 'Please enter valid enail';
+                        return 'Please enter valid email';
                       }
                       return null;
                     },

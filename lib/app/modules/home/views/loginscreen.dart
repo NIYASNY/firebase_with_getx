@@ -1,3 +1,4 @@
+import 'package:firebase_with_getx_todo/app/modules/home/views/registerscreen.dart';
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
 import 'package:firebase_with_getx_todo/app/widgets/todo_logo.dart';
 import 'package:flutter/material.dart';
@@ -89,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 FocusManager.instance.primaryFocus?.unfocus();
                                 if (formKey.currentState!.validate()) {
                                   print('ok');
-                                  final result = await authcontroller.register(
+                                  final result = await authcontroller.signIn(
                                       emailcontroller.text,
                                       passcontroller.text);
                                   if (!result) {
@@ -106,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                               },
                               child: const Text(
-                                'Register',
+                                'Login',
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 20),
                               ),
@@ -116,12 +117,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Row(
                     children: [
-                      const Text('Already have an account'),
+                      const Text('Create an account'),
                       TextButton(
                           onPressed: () {
-                            Get.off(() => const LoginScreen());
+                            Get.off(() => const RegisterScreen());
                           },
-                          child: const Text('Login now'))
+                          child: const Text('Register Now'))
                     ],
                   ),
                 )

@@ -20,7 +20,7 @@ class HomeController extends GetxController {
       );
       await ref.set(todo.toMap());
     } catch (e) {
-      debugPrint('Someting went wrong(Add) : $e');
+      print('Someting went wrong(Add) : $e');
     }
   }
 
@@ -30,7 +30,7 @@ class HomeController extends GetxController {
       .collection('Users').doc(authcontroller.user!.uid)
       .collection('todos').doc(id).update(todo.toMap());
     } catch (e) {
-      debugPrint('Something went wrong(Update): $e');
+      print('Something went wrong(Update): $e');
     }
   }
 
@@ -40,7 +40,7 @@ class HomeController extends GetxController {
       .collection('Users').doc(authcontroller.user!.uid)
       .collection('todos').doc(id).delete();
     } catch (e) {
-      debugPrint('Something went wrong(Delete): $e');
+      print('Something went wrong(Delete): $e');
     }
   }
 
@@ -59,7 +59,7 @@ class HomeController extends GetxController {
         return batch.commit();
       });
     } catch (e) {
-      debugPrint('Something went wrong(Batch Delete): $e');
+      print('Something went wrong(Batch Delete): $e');
     }
   }
 }

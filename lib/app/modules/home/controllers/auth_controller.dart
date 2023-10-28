@@ -27,7 +27,7 @@ class AuthController extends GetxController {
       return true;
     } catch (e) {
       _isAuthenticating..value = false;
-      debugPrint('$e');
+      print('$e');
       return false;
     }
   }
@@ -42,7 +42,7 @@ class AuthController extends GetxController {
       return true;
     } catch (e) {
       _isAuthenticating.value = false;
-      debugPrint('$e');
+      print('$e');
       return false;
     }
   }

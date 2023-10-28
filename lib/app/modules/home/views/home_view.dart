@@ -217,18 +217,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         actions: [
-          // if (todo != null)
-          //   TextButton.icon(
-          //       onPressed: () {
-          //         homeController.deleteTodo(todo.id);
-          //       },
-          //       icon: Icon(Icons.delete),
-          //       label: const Text(
-          //         'Delete',
-          //         style: TextStyle(
-          //           color: Colors.red,
-          //         ),
-          //       )),
           TextButton(
               onPressed: () {
                 Get.back();
