@@ -93,13 +93,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     emailController.text,
                                     passwordController.text);
                                 if (!result) {
-                                  if (mounted) {
                                     ScaffoldMessenger.of(context)
                                         .showSnackBar(const SnackBar(
                                       content: Text('Something went wrong'),
                                       backgroundColor: Colors.red,
                                     ));
-                                  }
                                 }
                               } else {
                                 print('Not ok');

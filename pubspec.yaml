@@ -19,13 +19,6 @@ dependencies:
   firebase_auth: ^4.11.1
   flutter_slidable: ^3.0.0
 
-fonts:
-  - family: Pacifico
-    fonts:
-      - asset: fonts/Pacifico-Regular.ttf
-      - asset: fonts/Belanosima-Bold.ttf
-      - asset: fonts/PermanentMarker-Regular.ttf
-
 dev_dependencies: 
   flutter_lints: ^2.0.0
   flutter_test: 
@@ -33,4 +26,11 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+
+fonts:
+  - family: Pacifico
+    fonts:
+      - asset: fonts/Pacifico-Regular.ttf
+      - asset: fonts/Belanosima-Bold.ttf
+      - asset: fonts/PermanentMarker-Regular.ttf  
 
