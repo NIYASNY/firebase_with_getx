@@ -6,6 +6,7 @@ import 'package:firebase_with_getx_todo/app/utils/helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:grouped_list/grouped_list.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,9 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.red[300],
       appBar: AppBar(
         backgroundColor: Colors.purple[700],
-        title: const Text(
+        title: Text(
           'Todo_List',
-          style: TextStyle(fontFamily: 'Pacifico'),
+          style: GoogleFonts.pacifico(fontSize: 25),
         ),
       ),
       endDrawer: const EndDrawer(),
