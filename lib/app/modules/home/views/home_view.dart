@@ -28,9 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red[300],
       appBar: AppBar(
-        backgroundColor: Colors.purple[700],
+        backgroundColor: Colors.pink,
         title: Text(
           'Todo_List',
           style: GoogleFonts.pacifico(fontSize: 25),
@@ -79,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: (context) {
                           homeController.deleteTodo(todo.id);
                         },
-                        backgroundColor: Color(0xFFFE4A49),
+                        backgroundColor: Colors.pink,
                         foregroundColor: Colors.white,
                         icon: Icons.delete,
                         label: 'Delete',
@@ -88,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: (context) {
                           showTodoInput(context, todo: todo);
                         },
-                        backgroundColor: Color(0xFF21B7CA),
+                        backgroundColor: Colors.green,
                         foregroundColor: Colors.white,
                         icon: Icons.update,
                         label: 'Update',
@@ -169,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple[700],
+        backgroundColor: Colors.pink,
         onPressed: () async {
           setState(() {
             time = TimeOfDay.now().format(context);

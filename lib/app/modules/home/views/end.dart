@@ -17,7 +17,7 @@ class EndDrawer extends StatelessWidget {
             width: double.infinity,
             height: 150,
             alignment: Alignment.bottomLeft,
-            color: PrimaryColor.shade400,
+            color: PrimaryColor,
             padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

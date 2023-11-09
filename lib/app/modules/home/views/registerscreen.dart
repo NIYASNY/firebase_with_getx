@@ -28,6 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.pink,
         title: const Text('Register'),
       ),
       body: SingleChildScrollView(
@@ -93,11 +94,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     emailController.text,
                                     passwordController.text);
                                 if (!result) {
-                                    ScaffoldMessenger.of(context)
-                                        .showSnackBar(const SnackBar(
-                                      content: Text('Something went wrong'),
-                                      backgroundColor: Colors.red,
-                                    ));
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(const SnackBar(
+                                    content: Text('Something went wrong'),
+                                    backgroundColor: Colors.red,
+                                  ));
                                 }
                               } else {
                                 print('Not ok');
@@ -120,7 +121,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         onPressed: () {
                           Get.off(() => const LoginScreen());
                         },
-                        child: const Text('Login Now'),
+                        child:const Text(
+                          'Login Now',
+                          style: TextStyle(color: Colors.pink),
+                        ),
                       ),
                     ],
                   ),

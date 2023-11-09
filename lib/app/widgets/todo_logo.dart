@@ -11,7 +11,7 @@ class TodoLogo extends StatelessWidget {
           height: 50,
         ),
         Icon(
-          Icons.check_circle,
+          Icons.circle_notifications_rounded,
           size: 60,
         ),
         SizedBox(

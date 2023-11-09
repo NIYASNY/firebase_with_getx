@@ -28,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.pink,
         title: const Text('Login'),
       ),
       body: SingleChildScrollView(
@@ -77,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 60,
                       decoration: BoxDecoration(
                         color: authcontroller.isAuthenticating
-                            ? PrimaryColor.shade200
+                            ? PrimaryColor
                             : PrimaryColor,
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -94,11 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                       emailcontroller.text,
                                       passcontroller.text);
                                   if (!result) {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(const SnackBar(
-                                        content: Text('Something went wrong'),
-                                        backgroundColor: Colors.red,
-                                      ));
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(const SnackBar(
+                                      content: Text('Something went wrong'),
+                                      backgroundColor: Colors.red,
+                                    ));
                                   }
                                 } else {
                                   print('Not Ok');
@@ -120,7 +121,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             Get.off(() => const RegisterScreen());
                           },
-                          child: const Text('Register Now'))
+                          child: const Text(
+                            'Register Now',
+                            style: TextStyle(color: Colors.pink),
+                          )),
                     ],
                   ),
                 )
