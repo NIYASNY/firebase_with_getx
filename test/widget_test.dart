@@ -9,8 +9,6 @@ import 'package:firebase_with_getx_todo/app/modules/home/views/welcome_screen.da
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:firebase_with_getx_todo/main.dart';
-
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.

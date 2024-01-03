@@ -1,7 +1,6 @@
 import 'package:firebase_with_getx_todo/app/modules/home/views/home_view.dart';
 import 'package:firebase_with_getx_todo/app/modules/home/views/loginscreen.dart';
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +27,7 @@ class AuthController extends GetxController {
     } catch (e) {
       _isAuthenticating..value = false;
       print('$e');
-      return false;
+      return false; 
     }
   }
 

@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_with_getx_todo/app/modules/model/todo.dart';
 import 'package:firebase_with_getx_todo/app/utils/constants.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
